@@ -7,7 +7,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
-namespace ZenithGun.Items.Weapons
+namespace ZenithGun.Items.Weapons.ZenithGun
 {
 
 	public class ZenithGunMinionBuff : ModBuff
@@ -134,25 +134,20 @@ namespace ZenithGun.Items.Weapons
 				}
 				for (int i = 0; i < id.Count; i++)
                 {
-					Vector2 projectilePosition = Main.projectile[id[i]].position;
+					Vector2 projectilePosition = Main.projectile[id[i]].Center;
 					Vector2 mouseDirection = Main.MouseWorld - projectilePosition;
-					perturbedSpeed = new Vector2(mouseDirection.X, mouseDirection.Y).RotatedByRandom(MathHelper.ToRadians(5));
-					mouseDirection.X = perturbedSpeed.X;
-					mouseDirection.Y = perturbedSpeed.Y;
-
-					Projectile.NewProjectile(projectilePosition.X+14, projectilePosition.Y, mouseDirection.X, mouseDirection.Y, typeList[i], damage, knockBack, Main.myPlayer, 0f, 0f);
+					mouseDirection = mouseDirection.RotatedByRandom(MathHelper.ToRadians(5));
+					Projectile.NewProjectile(projectilePosition.X, projectilePosition.Y, mouseDirection.X, mouseDirection.Y, typeList[i], damage, knockBack, Main.myPlayer, 0f, 0f);
 				}
 			}
             else
             {
 				for (int i = 0; i < id.Count; i++)
 				{
-					Vector2 projectilePosition = Main.projectile[id[i]].position;
+					Vector2 projectilePosition = Main.projectile[id[i]].Center;
 					Vector2 mouseDirection = Main.MouseWorld - projectilePosition;
-					perturbedSpeed = new Vector2(mouseDirection.X, mouseDirection.Y).RotatedByRandom(MathHelper.ToRadians(5));
-					mouseDirection.X = perturbedSpeed.X;
-					mouseDirection.Y = perturbedSpeed.Y;
-					Projectile.NewProjectile(projectilePosition.X+14, projectilePosition.Y, mouseDirection.X, mouseDirection.Y, type, damage, knockBack, Main.myPlayer, 0f, 0f);
+					mouseDirection = mouseDirection.RotatedByRandom(MathHelper.ToRadians(5));
+					Projectile.NewProjectile(projectilePosition.X, projectilePosition.Y, mouseDirection.X, mouseDirection.Y, type, damage, knockBack, Main.myPlayer, 0f, 0f);
 				}
 			}
 			return true;
@@ -260,7 +255,7 @@ namespace ZenithGun.Items.Weapons
 
 			#region Animation and visuals
 
-			Vector2 mouseDirection = Main.MouseWorld - projectile.position;
+			Vector2 mouseDirection = Main.MouseWorld - projectile.Center;
 			float projectileAngle = mouseDirection.ToRotation()%(float)(2*Math.PI);
 			if(projectileAngle < (float)(Math.PI/2f) && projectileAngle > (float)(-Math.PI/2f))
 			{
