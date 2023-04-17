@@ -1,31 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\trifo\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\ZenithGun\\ZenithGun.csproj": {}
+    "E:\\Auri\\Documents\\my games\\Terraria\\tModLoader\\ModSources\\ZenithGun\\ZenithGun.csproj": {}
   },
   "projects": {
-    "C:\\Users\\trifo\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\ZenithGun\\ZenithGun.csproj": {
+    "E:\\Auri\\Documents\\my games\\Terraria\\tModLoader\\ModSources\\ZenithGun\\ZenithGun.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\trifo\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\ZenithGun\\ZenithGun.csproj",
+        "projectUniqueName": "E:\\Auri\\Documents\\my games\\Terraria\\tModLoader\\ModSources\\ZenithGun\\ZenithGun.csproj",
         "projectName": "ZenithGun",
-        "projectPath": "C:\\Users\\trifo\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\ZenithGun\\ZenithGun.csproj",
-        "packagesPath": "C:\\Users\\trifo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\trifo\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\ZenithGun\\obj\\",
+        "projectPath": "E:\\Auri\\Documents\\my games\\Terraria\\tModLoader\\ModSources\\ZenithGun\\ZenithGun.csproj",
+        "packagesPath": "C:\\Users\\Auri\\.nuget\\packages\\",
+        "outputPath": "E:\\Auri\\Documents\\my games\\Terraria\\tModLoader\\ModSources\\ZenithGun\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\trifo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Auri\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net45"
+          "net6.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net45": {
+          "net6.0": {
+            "targetAlias": "net6.0",
             "projectReferences": {}
           }
         },
@@ -36,14 +37,31 @@
         }
       },
       "frameworks": {
-        "net45": {
+        "net6.0": {
+          "targetAlias": "net6.0",
           "dependencies": {
             "tModLoader.CodeAssist": {
               "target": "Package",
               "version": "[0.1.*, )"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

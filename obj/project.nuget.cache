@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "FuU5Krh/s7OUm04YpSehNW/L13Lhz4X1dr2coyEQQmM957D7/f9yNCvjIYZzkQgss5jsxwg7AoDH5+6gm1bcdQ==",
+  "dgSpecHash": "SuuRq3ahW6RA8T4JCNubeGla6CcP0ZH7H1TXkeY/F+i5FPyepH6j00Ow2V0wlCqKTTRRTfRG15el5nfmw8NVfA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\trifo\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\ZenithGun\\ZenithGun.csproj",
+  "projectFilePath": "E:\\Auri\\Documents\\my games\\Terraria\\tModLoader\\ModSources\\ZenithGun\\ZenithGun.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\trifo\\.nuget\\packages\\tmodloader.codeassist\\0.1.1\\tmodloader.codeassist.0.1.1.nupkg.sha512"
+    "C:\\Users\\Auri\\.nuget\\packages\\tmodloader.codeassist\\0.1.5\\tmodloader.codeassist.0.1.5.nupkg.sha512"
   ],
   "logs": []
 }
