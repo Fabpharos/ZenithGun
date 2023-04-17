@@ -36,22 +36,22 @@ namespace ZenithGun.Items.Weapons.ZenithGun {
 
 		public override void SetDefaults() {
 			Item.damage = 100;
-            Item.DamageType = DamageClass.Ranged;
-            Item.width = 100;
-            Item.height = 40;
-            Item.useTime = 4;
-            Item.useAnimation = 4;
-            Item.useStyle = ItemUseStyleID.Shoot;
-            Item.noMelee = true; //so the item's animation doesn't do damage
-            Item.knockBack = 4;
-            Item.value = 100000;
-            Item.rare = ItemRarityID.Red;
-            Item.UseSound = SoundID.Item11;
-            Item.autoReuse = true;
-            Item.shoot = 10; //idk why but all the guns in the vanilla source have this
-            Item.shootSpeed = 16f;
-            Item.useAmmo = AmmoID.Bullet;
-            Item.buffType = BuffType<ZenithGunMinionBuff>();
+			Item.DamageType = DamageClass.Ranged;
+			Item.width = 100;
+			Item.height = 40;
+			Item.useTime = 4;
+			Item.useAnimation = 4;
+			Item.useStyle = ItemUseStyleID.Shoot;
+			Item.noMelee = true; //so the item's animation doesn't do damage
+			Item.knockBack = 4;
+			Item.value = 100000;
+			Item.rare = ItemRarityID.Red;
+			Item.UseSound = SoundID.Item11;
+			Item.autoReuse = true;
+			Item.shoot = 10; //idk why but all the guns in the vanilla source have this
+			Item.shootSpeed = 16f;
+			Item.useAmmo = AmmoID.Bullet;
+			Item.buffType = BuffType<ZenithGunMinionBuff>();
 		}
 
 		public override void AddRecipes() {
@@ -67,25 +67,25 @@ namespace ZenithGun.Items.Weapons.ZenithGun {
 				.AddIngredient(ItemID.ClockworkAssaultRifle, 1)
 				.AddIngredient(ItemID.PhoenixBlaster, 1);
 
-            Recipe cloneRecipe = baseRecipe.Clone();
+			Recipe cloneRecipe = baseRecipe.Clone();
 
-            ModLoader.TryGetMod("CalamityMod", out Mod calamityMod);
-            if (calamityMod != null && calamityMod.TryFind<ModItem>("AuricBar", out ModItem AuricBar)) {
-                baseRecipe.AddIngredient(ItemID.TheUndertaker, 1)
+			ModLoader.TryGetMod("CalamityMod", out Mod calamityMod);
+			if (calamityMod != null && calamityMod.TryFind<ModItem>("AuricBar", out ModItem AuricBar)) {
+				baseRecipe.AddIngredient(ItemID.TheUndertaker, 1)
 					.AddIngredient(AuricBar.Type, 5)
 					.Register();
-                cloneRecipe.AddIngredient(ItemID.Musket, 1)
+				cloneRecipe.AddIngredient(ItemID.Musket, 1)
 					.AddIngredient(AuricBar.Type, 5)
 					.Register();
-            } else {
-                baseRecipe.AddIngredient(ItemID.TheUndertaker, 1)
+			} else {
+				baseRecipe.AddIngredient(ItemID.TheUndertaker, 1)
 					.Register();
-                cloneRecipe.AddIngredient(ItemID.Musket, 1)
-                    .Register();
-            }
-        }
+				cloneRecipe.AddIngredient(ItemID.Musket, 1)
+					.Register();
+			}
+		}
 
-        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
 			player.AddBuff(Item.buffType, 10);
 			velocity = velocity.RotatedByRandom(MathHelper.ToRadians(5));
 
@@ -93,21 +93,21 @@ namespace ZenithGun.Items.Weapons.ZenithGun {
 			if (gunCount == 0) {
 				id.Clear();
 				id.Add(Projectile.NewProjectile(player.GetSource_ItemUse(Item), position, new Vector2(0, 0), ProjectileType<SDMGMinion>(), damage, knockback, Main.myPlayer, 0f, 0f));
-                id.Add(Projectile.NewProjectile(player.GetSource_ItemUse(Item), position, new Vector2(0, 0), ProjectileType<ChainGunMinion>(), damage, knockback, Main.myPlayer, 0f, 0f));
-                id.Add(Projectile.NewProjectile(player.GetSource_ItemUse(Item), position, new Vector2(0, 0), ProjectileType<ClockworkAssaultRifleMinion>(), damage, knockback, Main.myPlayer, 0f, 0f));
-                id.Add(Projectile.NewProjectile(player.GetSource_ItemUse(Item), position, new Vector2(0, 0), ProjectileType<MegasharkMinion>(), damage, knockback, Main.myPlayer, 0f, 0f));
-                id.Add(Projectile.NewProjectile(player.GetSource_ItemUse(Item), position, new Vector2(0, 0), ProjectileType<VenusMagnumMinion>(), damage, knockback, Main.myPlayer, 0f, 0f));
-                id.Add(Projectile.NewProjectile(player.GetSource_ItemUse(Item), position, new Vector2(0, 0), ProjectileType<OnyxBlasterMinion>(), damage, knockback, Main.myPlayer, 0f, 0f));
-                id.Add(Projectile.NewProjectile(player.GetSource_ItemUse(Item), position, new Vector2(0, 0), ProjectileType<PhoenixBlasterMinion>(), damage, knockback, Main.myPlayer, 0f, 0f));
-                id.Add(Projectile.NewProjectile(player.GetSource_ItemUse(Item), position, new Vector2(0, 0), ProjectileType<XenopopperMinion>(), damage, knockback, Main.myPlayer, 0f, 0f));
+				id.Add(Projectile.NewProjectile(player.GetSource_ItemUse(Item), position, new Vector2(0, 0), ProjectileType<ChainGunMinion>(), damage, knockback, Main.myPlayer, 0f, 0f));
+				id.Add(Projectile.NewProjectile(player.GetSource_ItemUse(Item), position, new Vector2(0, 0), ProjectileType<ClockworkAssaultRifleMinion>(), damage, knockback, Main.myPlayer, 0f, 0f));
+				id.Add(Projectile.NewProjectile(player.GetSource_ItemUse(Item), position, new Vector2(0, 0), ProjectileType<MegasharkMinion>(), damage, knockback, Main.myPlayer, 0f, 0f));
+				id.Add(Projectile.NewProjectile(player.GetSource_ItemUse(Item), position, new Vector2(0, 0), ProjectileType<VenusMagnumMinion>(), damage, knockback, Main.myPlayer, 0f, 0f));
+				id.Add(Projectile.NewProjectile(player.GetSource_ItemUse(Item), position, new Vector2(0, 0), ProjectileType<OnyxBlasterMinion>(), damage, knockback, Main.myPlayer, 0f, 0f));
+				id.Add(Projectile.NewProjectile(player.GetSource_ItemUse(Item), position, new Vector2(0, 0), ProjectileType<PhoenixBlasterMinion>(), damage, knockback, Main.myPlayer, 0f, 0f));
+				id.Add(Projectile.NewProjectile(player.GetSource_ItemUse(Item), position, new Vector2(0, 0), ProjectileType<XenopopperMinion>(), damage, knockback, Main.myPlayer, 0f, 0f));
 
-				if(random.Next(2) == 0) {
-                    id.Add(Projectile.NewProjectile(player.GetSource_ItemUse(Item), position, new Vector2(0, 0), ProjectileType<MusketMinion>(), damage, knockback, Main.myPlayer, 0f, 0f));
+				if (random.Next(2) == 0) {
+					id.Add(Projectile.NewProjectile(player.GetSource_ItemUse(Item), position, new Vector2(0, 0), ProjectileType<MusketMinion>(), damage, knockback, Main.myPlayer, 0f, 0f));
 				} else {
-                    id.Add(Projectile.NewProjectile(player.GetSource_ItemUse(Item), position, new Vector2(0, 0), ProjectileType<TheUndertakerMinion>(), damage, knockback, Main.myPlayer, 0f, 0f));
+					id.Add(Projectile.NewProjectile(player.GetSource_ItemUse(Item), position, new Vector2(0, 0), ProjectileType<TheUndertakerMinion>(), damage, knockback, Main.myPlayer, 0f, 0f));
 				}
 
-                id.Add(Projectile.NewProjectile(player.GetSource_ItemUse(Item), position, new Vector2(0, 0), ProjectileType<VortexBeaterMinion>(), damage, knockback, Main.myPlayer, 0f, 0f));
+				id.Add(Projectile.NewProjectile(player.GetSource_ItemUse(Item), position, new Vector2(0, 0), ProjectileType<VortexBeaterMinion>(), damage, knockback, Main.myPlayer, 0f, 0f));
 
 				typeList.Clear();
 				typeList.Add(ProjectileID.CrystalBullet);
@@ -143,7 +143,7 @@ namespace ZenithGun.Items.Weapons.ZenithGun {
 					Vector2 projectilePosition = Main.projectile[id[i]].Center;
 					Vector2 mouseDirection = Main.MouseWorld - projectilePosition;
 					mouseDirection = mouseDirection.RotatedByRandom(MathHelper.ToRadians(5));
-                    Projectile.NewProjectile(Main.projectile[id[i]].GetSource_FromThis(), projectilePosition, mouseDirection, type, damage, knockback, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(Main.projectile[id[i]].GetSource_FromThis(), projectilePosition, mouseDirection, type, damage, knockback, Main.myPlayer, 0f, 0f);
 				}
 			}
 
@@ -177,20 +177,20 @@ namespace ZenithGun.Items.Weapons.ZenithGun {
 		}
 
 		public override void SetDefaults() {
-            Projectile.width = 66;
-            Projectile.height = 32;
-            // Makes the minion go through tiles freely
-            Projectile.tileCollide = false;
+			Projectile.width = 66;
+			Projectile.height = 32;
+			// Makes the minion go through tiles freely
+			Projectile.tileCollide = false;
 
-            // These below are needed for a minion weapon
-            // Only controls if it deals damage to enemies on contact (more on that later)
-            Projectile.friendly = true;
-            // Only determines the damage type
-            Projectile.minion = true;
-            // Amount of slots this minion occupies from the total minion slots available to the player (more on that later)
-            Projectile.minionSlots = 0f;
-            // Needed so the minion doesn't despawn on collision with enemies or tiles
-            Projectile.penetrate = -1;
+			// These below are needed for a minion weapon
+			// Only controls if it deals damage to enemies on contact (more on that later)
+			Projectile.friendly = true;
+			// Only determines the damage type
+			Projectile.minion = true;
+			// Amount of slots this minion occupies from the total minion slots available to the player (more on that later)
+			Projectile.minionSlots = 0f;
+			// Needed so the minion doesn't despawn on collision with enemies or tiles
+			Projectile.penetrate = -1;
 		}
 
 		// Here you can decide if your minion breaks things like grass or pots
@@ -213,44 +213,44 @@ namespace ZenithGun.Items.Weapons.ZenithGun {
 			}
 
 			if (player.HasBuff(BuffType<ZenithGunMinionBuff>())) {
-                Projectile.timeLeft = 2;
+				Projectile.timeLeft = 2;
 			}
 			#endregion
 
 			#region General behavior
 			Vector2 idlePosition = player.Center;
 			double theta = ((Projectile.minionPos - 1)*-Math.PI/9d);
-			idlePosition.X += 64f*(float)Math.Cos(theta) - 32f;
-			idlePosition.Y += 64f*(float)Math.Sin(theta);
+			idlePosition.X += 64f * (float) Math.Cos(theta) - 32f;
+			idlePosition.Y += 64f * (float) Math.Sin(theta);
 			idlePosition.Y -= 10f;
 
 			// Teleport to player if distance is too big
 			Vector2 vectorToIdlePosition = idlePosition - Projectile.Center;
 			float distanceToIdlePosition = vectorToIdlePosition.Length();
 			if (Main.myPlayer == player.whoAmI && distanceToIdlePosition > 2000f) {
-                // Whenever you deal with non-regular events that change the behavior or position drastically, make sure to only run the code on the owner of the projectile,
-                // and then set netUpdate to true
-                Projectile.position = idlePosition;
-                Projectile.velocity *= 0.1f;
-                Projectile.netUpdate = true;
+				// Whenever you deal with non-regular events that change the behavior or position drastically, make sure to only run the code on the owner of the projectile,
+				// and then set netUpdate to true
+				Projectile.position = idlePosition;
+				Projectile.velocity *= 0.1f;
+				Projectile.netUpdate = true;
 			}
 
-            //projectile.position = idlePosition;
-            Projectile.position += (idlePosition - Projectile.position) * new Vector2(0.2f, 0.2f);
+			//projectile.position = idlePosition;
+			Projectile.position += (idlePosition - Projectile.position) * new Vector2(0.2f, 0.2f);
 			#endregion
 
 			#region Animation and visuals
 
 			Vector2 mouseDirection = Main.MouseWorld - Projectile.Center;
 			float projectileAngle = mouseDirection.ToRotation()%(float)(2*Math.PI);
-			if(projectileAngle < (float)(Math.PI/2f) && projectileAngle > (float)(-Math.PI/2f)) {
-                Projectile.rotation = projectileAngle;
-                Projectile.spriteDirection = 1;
+			if (projectileAngle < (float) (Math.PI / 2f) && projectileAngle > (float) (-Math.PI / 2f)) {
+				Projectile.rotation = projectileAngle;
+				Projectile.spriteDirection = 1;
 			} else {
-                Projectile.rotation = projectileAngle + (float)Math.PI;
-                Projectile.spriteDirection = -1;
-            }
-			
+				Projectile.rotation = projectileAngle + (float) Math.PI;
+				Projectile.spriteDirection = -1;
+			}
+
 
 			// Some visuals here
 			Lighting.AddLight(Projectile.Center, Color.White.ToVector3() * 0.78f);
@@ -260,81 +260,81 @@ namespace ZenithGun.Items.Weapons.ZenithGun {
 
 	public class ChainGunMinion : SDMGMinion {
 		public sealed override void SetDefaults() {
-            Projectile.width = 52;
-            Projectile.height = 32;
-            Projectile.minionPos = 2;
+			Projectile.width = 52;
+			Projectile.height = 32;
+			Projectile.minionPos = 2;
 		}
 	}
 
 	public class ClockworkAssaultRifleMinion : SDMGMinion {
 		public sealed override void SetDefaults() {
-            Projectile.width = 56;
-            Projectile.height = 20;
-            Projectile.minionPos = 3;
+			Projectile.width = 56;
+			Projectile.height = 20;
+			Projectile.minionPos = 3;
 		}
 	}
 
 	public class MegasharkMinion : SDMGMinion {
 		public sealed override void SetDefaults() {
-            Projectile.width = 70;
-            Projectile.height = 28;
-            Projectile.minionPos = 4;
+			Projectile.width = 70;
+			Projectile.height = 28;
+			Projectile.minionPos = 4;
 		}
 	}
 
 	public class VenusMagnumMinion : SDMGMinion {
 		public sealed override void SetDefaults() {
-            Projectile.width = 52;
-            Projectile.height = 28;
-            Projectile.minionPos = 5;
+			Projectile.width = 52;
+			Projectile.height = 28;
+			Projectile.minionPos = 5;
 		}
 	}
 
 	public class OnyxBlasterMinion : SDMGMinion {
 		public sealed override void SetDefaults() {
-            Projectile.width = 60;
-            Projectile.height = 26;
-            Projectile.minionPos = 6;
+			Projectile.width = 60;
+			Projectile.height = 26;
+			Projectile.minionPos = 6;
 		}
 	}
 
 	public class PhoenixBlasterMinion : SDMGMinion {
 		public sealed override void SetDefaults() {
-            Projectile.width = 42;
-            Projectile.height = 30;
-            Projectile.minionPos = 7;
+			Projectile.width = 42;
+			Projectile.height = 30;
+			Projectile.minionPos = 7;
 		}
 	}
 
 	public class XenopopperMinion : SDMGMinion {
 		public sealed override void SetDefaults() {
-            Projectile.width = 42;
-            Projectile.height = 22;
-            Projectile.minionPos = 8;
+			Projectile.width = 42;
+			Projectile.height = 22;
+			Projectile.minionPos = 8;
 		}
 	}
 
 	public class TheUndertakerMinion : SDMGMinion {
 		public sealed override void SetDefaults() {
-            Projectile.width = 46;
-            Projectile.height = 36;
-            Projectile.minionPos = 9;
+			Projectile.width = 46;
+			Projectile.height = 36;
+			Projectile.minionPos = 9;
 		}
 	}
 
 	public class MusketMinion : SDMGMinion {
 		public sealed override void SetDefaults() {
-            Projectile.width = 56;
-            Projectile.height = 18;
-            Projectile.minionPos = 9;
+			Projectile.width = 56;
+			Projectile.height = 18;
+			Projectile.minionPos = 9;
 		}
 	}
 
 	public class VortexBeaterMinion : SDMGMinion {
 		public sealed override void SetDefaults() {
-            Projectile.width = 66;
-            Projectile.height = 28;
-            Projectile.minionPos = 10;
+			Projectile.width = 66;
+			Projectile.height = 28;
+			Projectile.minionPos = 10;
 		}
 	}
 }
